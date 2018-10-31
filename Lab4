@@ -1,0 +1,106 @@
+public class Table implements Element {
+String name;
+
+public Table(String name) {
+	this.name = name;
+}
+public void print() {
+	System.out.println(name);
+}
+public void add(Element e)
+{
+	
+}
+}
+
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Section implements Element{
+String title;
+List<Element>e=new ArrayList<>();
+public Section(String title) {
+	this.title = title;
+}
+public void add(Paragraph paragraph) {
+	// TODO Auto-generated method stub
+	e.add(paragraph);
+}
+public void add(Element cap11) {
+	// TODO Auto-generated method stub
+	e.add(cap11);
+}
+public void print() {
+	System.out.println(title);
+	for(Element ele:e)
+	{
+		ele.print();
+	}
+}
+}
+
+public class Paragraph implements Element {
+String text;
+
+public Paragraph(String text) {
+	this.text = text;
+}
+public void print() {
+	System.out.println(text);
+}
+public void add(Element e)
+{
+	
+}
+}
+
+
+public interface Element{
+public void print();
+public void add(Element e);
+}
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Book {
+String titlu;
+List<Author> a;
+List<Element>e=new ArrayList<>();
+public Book(String titlu) {
+	this.a=new ArrayList<>();
+	this.titlu = titlu;
+}
+public void addAuthor(Author a1)
+{
+a.add(a1);
+}
+public void print() {
+	System.out.println(titlu);
+	System.out.println("Authors: ");
+	for(Author auth:a)
+	{
+		auth.print();
+	}
+	for(Element ele:e)
+	{
+		ele.print();
+	}
+	
+}
+public void add(Paragraph paragraph) {
+	// TODO Auto-generated method stub
+	e.add(paragraph);
+}
+public void add(Section cap1) {
+	// TODO Auto-generated method stub
+	e.add(cap1);
+}
+}
+
+
+
+
