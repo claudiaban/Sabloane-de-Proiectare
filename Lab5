@@ -1,0 +1,67 @@
+import java.util.concurrent.TimeUnit;
+
+public class Image implements Element {
+String name;
+
+public Image(String name) {
+	this.name = name;
+	try {
+		TimeUnit.SECONDS.sleep(5);
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+}
+public void print() {
+	System.out.println(name);
+}
+public void add(Element e)
+{
+	
+}
+}
+
+
+
+public class ImgProxy implements Element {
+	public String imgName;
+	public Image image;
+	@Override
+	public void print() {
+		// TODO Auto-generated method stub
+		if(image==null)
+			image=new Image(imgName);
+		image.print();
+	}
+	public ImgProxy(String imgName)
+	{
+		this.imgName=imgName;
+	}
+	@Override
+	public void add(Element e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
+
+
+
+
+public class Main {
+
+	public static void main(String[] args) {
+	    long startTime=System.currentTimeMillis();
+	    Section cap1=new Section ("Playboy");
+	    cap1.add(new ImgProxy("Pamela Anderson"));
+	    Section cap2=new Section("Auto Show");
+	    cap2.add(new ImgProxy("My dream BMW"));
+	    cap2.add(new ImgProxy("My car is a Trabi"));
+	    cap1.print();
+	    long endTime=System.currentTimeMillis();
+	    System.out.println(endTime-startTime);
+	    
+	    
+	}
+
+}
